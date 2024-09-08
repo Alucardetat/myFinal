@@ -1,40 +1,66 @@
-import React, { useState, useEffect } from "react";
-import "./Product.css";
-import productData from "../../assets/product.json";
+import React, { useState } from 'react';
+import Qauntity from "../Quantity/Quantity";
+import './Product.css';
+import Quantity from '../Quantity/Quantity';
 
 const Product = () => {
-    // Product functional component that renders the product and details.
+  const [mainImage, setMainImage] = useState("/assets/image-product-1.jpg");
 
-    const [product, setProduct] = useState(null);
+  const handleImageChange = (imagePath) => {
+    setMainImage(imagePath);
+  };
 
-    // Fetch the product data
-     useEffect(() => {
-         setProduct(productData.product);
-    }, []); // Empty dependancy array means it runs once after intial render.
-
-    // if product data is still loading, render fallback
-    if (!product) {
-        return <h1>Loading...</h1>;
-    }
-
-    return (
-        <div className="product">
-            {/* Wrapper for the entire product section */}
-            {/* Use the product info from json */}
-            <h1>{product.title}</h1>
-            <p>{product.description}</p>
-            <p>Price: ${product.price}</p>
-            
-            {/* Conditional rendering of sale price */}
-            {product.isOnSale && (
-                <p>
-                    Sale Price: ${product.price - (product.price * product.saleOff) / 100}
-                    ({product.saleOff}% Off)
-                </p>
-            )}
-            
+  return (
+    <div className="product-page">
+      <div className="image-section">
+        <img src={mainImage} alt="Main product" className="main-image" />
+        <div className="thumbnail-container">
+          <img
+            src="/assets/image-product-1-thumbnail.jpg"
+            alt="Thumbnail 1"
+            onClick={() => handleImageChange("/assets/image-product-1.jpg")}
+            className="thumbnail"
+          />
+          <img
+            src="/assets/image-product-2-thumbnail.jpg"
+            alt="Thumbnail 2"
+            onClick={() => handleImageChange("/assets/image-product-2.jpg")}
+            className="thumbnail"
+          />
+          <img
+            src="/assets/image-product-3-thumbnail.jpg"
+            alt="Thumbnail 3"
+            onClick={() => handleImageChange("/assets/image-product-3.jpg")}
+            className="thumbnail"
+          />
+          <img
+            src="/assets/image-product-4-thumbnail.jpg"
+            alt="Thumbnail 4"
+            onClick={() => handleImageChange("/assets/image-product-4.jpg")}
+            className="thumbnail"
+          />
         </div>
-    );
+      </div>
+
+      <div className="details-section">
+        <h2 className="company-name">SNEAKER COMPANY</h2>
+        <h1 className="product-title">Fall Limited Edition Sneakers</h1>
+        <p className="product-description">
+          These low-profile sneakers are your perfect casual wear companion. Featuring a durable rubber outer sole, they’ll withstand everything the weather can offer.
+        </p>
+        <div className="price-info">
+          <div className="current-price">$125.00</div>
+          <div className="discount-badge">50%</div>
+          <div className="original-price">$250.00</div>
+        </div>
+        <div className="cart-controls">
+          <div className="quantity-controls">
+            <Quantity initialQauntity={0} />
+          </div>
+        </div>
+      </div>
+    </div>
+  );
 };
 
 export default Product;

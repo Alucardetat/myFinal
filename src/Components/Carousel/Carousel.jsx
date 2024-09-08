@@ -2,8 +2,6 @@ import React, { useState } from "react";
 import "./Carousel.css"
 
 const Carousel = () => {
-    // Carousel functional component to display the images in a carousel.
-
     const [currentImage, setCurrentImage] = useState("/assets/image-product-1.jpg");
 
     const allImages = [
@@ -19,11 +17,9 @@ const Carousel = () => {
 
     return (
         <div className="carouselContainer">
-            {/* Main image */}
             <div className="mainImage">
                 <img src={currentImage} alt="Main product image." />
             </div>
-            {/* Thumbnails */}
             <div className="thumbnailsContainer">
                 {allImages.map((image, index) => (
                     <img

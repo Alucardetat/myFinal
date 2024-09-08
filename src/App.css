@@ -27,6 +27,24 @@ body {
   max-width: 500px;
 }
 
+.welcome p .link{
+  color: white;
+  text-decoration: none;
+
+}
+
+.welcome p .link:hover {
+  color: orange;
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+.welcome p .link:visited,
+.welcome p .link:active {
+  color: orange;
+  text-decoration: underline;
+}
+
 @media (max-width: 768px) {
   .mainContent {
     flex-direction: column;

@@ -1,15 +1,29 @@
 .navbar {
-  width: 100vw;
+  width: 100%;
   height: 15vh;
-  background-color: #333;
-  color: white;
+  background-color: white;
   display: flex;
-  justify-content: space-evenly;
+  justify-content: space-around;
   align-items: center;
+  padding: 0 20px;
+  position: relative;
+  border-bottom: none;
 }
 
-.logo {
-  color: white;
+.navbar::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(
+    to right,
+    transparent 10%,
+    orange 20%,
+    orange 70%,
+    transparent 90%
+  );
 }
 
 .mfg {
@@ -19,19 +33,18 @@
 .navlinks {
   list-style: none;
   display: flex;
-  color: white;
+  gap: 20px;
+  align-items: center;
 }
 
-.navlinks li .link{
+.navlinks li .link {
   margin: 0 15px;
-  color: white;
+  color: black;
   text-decoration: none;
-
 }
 
 .navlinks li .link:hover {
   color: orange;
-  cursor: pointer;
   text-decoration: underline;
 }
 
@@ -49,60 +62,45 @@
   text-decoration: none;
 }
 
-.menu {
-  position: relative;
-  display: inline-block;
-}
-
-.menuButton {
-  background: none;
-  border: none;
+.cartIcon, .userIcon {
+  width: 30px;
   cursor: pointer;
 }
 
 .menuIcon {
-  cursor: pointer;
-}
-
-.actions {
-  visibility: hidden;
-  opacity: 0;
-  position: absolute;
-  top: 20px;
-  right: 0;
-  background-color: white;
-  border: 1px solid #ccc;
-  padding: 10px;
-  border-radius: 5px;
-  box-shadow: 0 40px 8px rgba(0, 0, 0, 0.1);
-  transition: visibility 0.3s, opacity 0.3s, ease-in-out;
-  z-index: 999;
-}
-
-.menuButton:hover + .actions, .actions:hover {
-  visibility: visible;
-  opacity: 1;
-}
-
-.actions img {
-  margin: 5px;
-  width: 30px;
-  height: 30px;
-  cursor: pointer;
+  display: none;
 }
 
 @media (max-width: 768px) {
-  .navbar {
-    flex-direction: column;
-    align-items: flex-start;
+  .menuIcon {
+    display: block;
+    cursor: pointer;
+    position: relative;
+    left: 10px;
+    bottom: 0px;
+    z-index: 1;
   }
 
   .navlinks {
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 75%;
+    height: 100vh;
     flex-direction: column;
-    width: 100%;
+    background-color: white;
+    padding-top: 5vh;
+    gap: 30px;
+    align-items: flex-start;
+    justify-content: flex-start;
+    transition: left 0.3s ease;
   }
 
-  .navlinks li {
-    margin: 10px 0;
+  .navlinks.active {
+    left: 0;
   }
+}
+
+.navlinks li {
+  margin: 10px 0;
 }

@@ -1,0 +1,24 @@
+.construction {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .construction p .link{
+    color: white;
+    text-decoration: none;
+  
+  }
+  
+  .construction p .link:hover {
+    color: orange;
+    cursor: pointer;
+    text-decoration: underline;
+  }
+  
+  .construction p .link:visited,
+  .construction p .link:active {
+    color: orange;
+    text-decoration: none;
+  }
