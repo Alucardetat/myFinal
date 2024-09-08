@@ -1,17 +1,17 @@
-.welcome p .link{
+.collections p .link{
     color: white;
     text-decoration: none;
   
   }
   
-  .welcome p .link:hover {
+  .collections p .link:hover {
     color: orange;
     cursor: pointer;
     text-decoration: underline;
   }
   
-  .welcome p .link:visited,
-  .welcome p .link:active {
+  .collections p .link:visited,
+  .collections p .link:active {
     color: orange;
     text-decoration: underline;
   }

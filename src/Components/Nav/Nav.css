@@ -19,17 +19,34 @@
 .navlinks {
   list-style: none;
   display: flex;
-}
-
-.navlinks li {
-  margin: 0 15px;
-  color: orange;
-}
-
-.navlinks li:hover {
   color: white;
+}
+
+.navlinks li .link{
+  margin: 0 15px;
+  color: white;
+  text-decoration: none;
+
+}
+
+.navlinks li .link:hover {
+  color: orange;
   cursor: pointer;
   text-decoration: underline;
+}
+
+.navlinks li .link:visited,
+.navlinks li .link:active {
+  color: orange;
+  text-decoration: none;
+}
+
+.welcomeLink,
+.welcomeLink:active,
+.welcomeLink:hover,
+.welcomeLink:visited {
+  color: orange;
+  text-decoration: none;
 }
 
 .menu {

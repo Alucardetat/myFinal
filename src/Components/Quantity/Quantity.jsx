@@ -1,5 +1,5 @@
-import React, { useState } from "react"; // Importing React and the useState hook for managing component state.
-import "./Quantity.css"; // Importing the CSS for the swag.
+import React, { useState } from "react";
+import "./Quantity.css";
 
 const Quantity = () => {
     // Quantity functional component managing quantity state.

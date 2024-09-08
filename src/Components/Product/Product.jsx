@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from "react"; // Importing React - necessary
-import "./Product.css"; // Importing CSS - necessary for ooo's and ahh's
-import productData from "../../assets/product.json" 
+import React, { useState, useEffect } from "react";
+import "./Product.css";
+import productData from "../../assets/product.json";
 
 const Product = () => {
     // Product functional component that renders the product and details.

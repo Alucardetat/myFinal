@@ -1,11 +1,12 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import "./Welcome.css"
 
 const Welcome = () => {
     return (
-        <div>
+        <div className="welcome">
             <h1>Welcome to Prsvr Kicks!</h1>
-            <p>Check out our latest collection <Link to="/product">here</Link>1</p>
+            <p>Check out our latest collection <Link to="/product" className="link">here</Link>!</p>
         </div>
     );
 };
