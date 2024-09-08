@@ -1,77 +1,39 @@
-.routeBorder {
-  border: pink solid 2px;
-}
-
-#root {
-  max-width: 100%;
-  margin: 0 auto;
+body {
+  font-family: 'Arial', sans-serif;
+  margin: 0;
   padding: 0;
-  height: 100%;
+  box-sizing: border-box;
 }
 
-
-#routeContainer {
+.app {
   display: flex;
   flex-direction: column;
-  width: 90vw;
-  height: 90vh;
-  border: red solid 2px;
+  align-items: center;
+  font-family: 'Arial', sans-serif;
 }
 
-#routeSubContent {
+.mainContent {
   display: flex;
-  flex-direction: row;
-  width: 100%;
-  height: 100%;
-  border: red solid 2px;
+  flex-wrap: wrap;
+  max-width: 1200px;
+  justify-content: space-between;
+  padding: 20px;
 }
 
-#routeCenter {
+.productInfo {
   display: flex;
   flex-direction: column;
-  width: 60%;
-  height: 100%;
-  border: yellow solid 2px;
-}
-
-#routeFooter {
-  display: flex;
-  align-items: center;
-  justify-content: center;
   width: 100%;
-  height: 20%;
-  border: greenyellow solid 2px;
+  max-width: 500px;
 }
 
-#routeHeader {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 100%;
-  height: 20%;
-  border: greenyellow solid 2px;
-}
+@media (max-width: 768px) {
+  .mainContent {
+    flex-direction: column;
+    align-items: center;
+  }
 
-#routeLeft {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 20%;
-  height: 100%;
-  border: blue solid 2px;
-}
-
-#routeNav {
-  display: flex;
-  justify-content: space-evenly;
-  border: teal solid 2px;
-}
-
-#routeRight {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 20%;
-  height: 100%;
-  border: blue  solid 2px;
+  .productInfo {
+    width: 100%;
+  }
 }

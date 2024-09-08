@@ -1,30 +1,35 @@
-import { useState } from 'react';
-import { Routes, Route, useOutlet } from "react-router-dom";
+import React from "react";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Nav from "./Components/Nav/Nav.jsx";
+import Welcome from "./Components/Welcome/Welcome.jsx";
+import Product from "./Components/Product/Product.jsx";
+import Collections from "./Components/Collections/Collections.jsx";
+import Construction from "./Components/Construction/Construction.jsx";
 import './App.css';
-import Center from "../../myFinal/src/Components/Center/Center";
-import Footer from "../../myFinal/src/Components/Footer/Footer";
-import Header from "../../myFinal/src/Components/Header/Header";
-import Landing from "../../myFinal/src/Components/Landing/Landing";
-import Layout from "../../myFinal/src/Components/Layout/Layout";
-import Left from "../../myFinal/src/Components/Left/Left";
-import Nav from "../../myFinal/src/Components/Nav/Nav";
-import Right from "../../myFinal/src/Components/Right/Right";
 
 function App() {
-
   return (
-    <>
-    <div id="routeContainer">
-      <Header />
-      <div id="routeSubContent">
-        <Left />
-        <Center />
-        <Right />
+    <Router>
+      <div className="app">
+        <Nav />
+        <div className="mainContent">
+          <Routes>
+            {/* Welcome Screen Route */}
+            <Route path="/" element={<Welcome />} />
+
+            {/* Prsvr Kicks Page */}
+            <Route path="/product" element={<Product />} />
+
+            {/* Collections Page */}
+            <Route path="/collections" element={<Collections />} />
+
+            {/* All other links go to the Under Construction page */}
+            <Route path="*" element={<Construction />} />
+          </Routes>
+        </div>
       </div>
-      <Footer />
-    </div>
-    </>
+    </Router>
   );
-};
+}
 
 export default App;
