@@ -1,10 +1,12 @@
 import React, { useState } from 'react';
-import Qauntity from "../Quantity/Quantity";
-import './Product.css';
+import productData from "../../assets/product.json"
 import Quantity from '../Quantity/Quantity';
+import './Product.css';
 
 const Product = () => {
   const [mainImage, setMainImage] = useState("/assets/image-product-1.jpg");
+
+  const product = productData.product;
 
   const handleImageChange = (imagePath) => {
     setMainImage(imagePath);
@@ -43,15 +45,19 @@ const Product = () => {
       </div>
 
       <div className="details-section">
-        <h2 className="company-name">SNEAKER COMPANY</h2>
-        <h1 className="product-title">Fall Limited Edition Sneakers</h1>
-        <p className="product-description">
-          These low-profile sneakers are your perfect casual wear companion. Featuring a durable rubber outer sole, they’ll withstand everything the weather can offer.
-        </p>
+        <h2 className="company-name">Persevere</h2>
+        <h1 className="product-title">{product.title}</h1>
+        <p className="product-description">{product.description}</p>
         <div className="price-info">
-          <div className="current-price">$125.00</div>
-          <div className="discount-badge">50%</div>
-          <div className="original-price">$250.00</div>
+          {product.isOnSale ? (
+            <>
+              <div className="current-price">${product.price - (product.price * product.saleOff / 100).toFixed(2)}</div>
+              <div className="discount-badge">{product.saleOff}%</div>
+              <div className="original-price">${product.price.toFixed(2)}</div>
+            </>
+          ) : (
+            <div className="current-price">${product.price.toFixe(2)}</div>
+          )}
         </div>
         <div className="cart-controls">
           <div className="quantity-controls">
